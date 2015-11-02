@@ -20,7 +20,8 @@ public class ContatoBean implements Serializable {
 	private ContatoService contatoService;
 	
 	private Contato contato;
-	private List<Contato> contatos = new ArrayList<Contato>();  
+	private List<Contato> contatos = new ArrayList<Contato>();
+	private Contato contatoSelecionado;
 	
 	@PostConstruct
 	public void init()
@@ -37,6 +38,11 @@ public class ContatoBean implements Serializable {
 		
 		this.limpar();
 	}
+	
+	public void excluir() {
+		this.contatoService.excluir(this.contatoSelecionado);
+		this.contatos.remove(this.contatoSelecionado);
+	}
 
 	public Contato getContato() {
 		return contato;
@@ -45,6 +51,14 @@ public class ContatoBean implements Serializable {
 		this.contato = contato;
 	}
 	
+	public Contato getContatoSelecionado() {
+		return contatoSelecionado;
+	}
+
+	public void setContatoSelecionado(Contato contatoSelecionado) {
+		this.contatoSelecionado = contatoSelecionado;
+	}
+
 	public List<Contato> getContatos() {
 		this.contatos = this.contatoService.buscaTodos();
 		

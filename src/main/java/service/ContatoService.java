@@ -23,4 +23,9 @@ public class ContatoService implements Serializable{
 	public List<Contato> buscaTodos() {
 		return this.contatoDAO.buscaTodos();
 	}
+	
+	@Transactional
+	public void excluir(Contato contato) {
+		this.contatoDAO.excluir(contato);
+	}
 }
