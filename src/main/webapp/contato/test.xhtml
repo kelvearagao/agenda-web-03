@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Insert title here</title>
+</h:head>
+<body>
+	<h:form id="frmCadastro">		
+		<p:messages id="messages" autoUpdate="true" closable="true" />
+	    <p:outputLabel value="Nome" for="nome"/>
+	    <p:inputText id="nome" size="60" maxlength="80" value="#{contatoBean.contato.nome}"/>
+	    <br/>
+	    
+	    <p:outputLabel value="Nascimento" for="nascimento"/>
+	    <p:inputText id="nascimento" size="60" maxlength="80" value="#{contatoBean.contato.nascimento}"/>
+	    <br/>
+	    
+	    <p:outputLabel value="Telefone" for="telefone"/>
+	    <p:inputText id="telefone" size="60" maxlength="80" value="#{contatoBean.contato.telefone}"/>
+	    <br/>
+	    
+	    <p:commandButton 
+	    	value="Salvar" 
+	    	id="botaoSalvar"
+	    	action="#{contatoBean.salvar}"
+	    	update="frmCadastro"/>
+	</h:form>
+</body>
+</html>
