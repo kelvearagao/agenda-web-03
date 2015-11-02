@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ViewScoped;
@@ -18,6 +20,7 @@ public class ContatoBean implements Serializable {
 	private ContatoService contatoService;
 	
 	private Contato contato;
+	private List<Contato> contatos = new ArrayList<Contato>();  
 	
 	@PostConstruct
 	public void init()
@@ -40,5 +43,11 @@ public class ContatoBean implements Serializable {
 	}
 	public void setContato(Contato contato) {
 		this.contato = contato;
+	}
+	
+	public List<Contato> getContatos() {
+		this.contatos = this.contatoService.buscaTodos();
+		
+		return this.contatos; 
 	}
 }

@@ -1,6 +1,7 @@
 package dao;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
@@ -13,9 +14,11 @@ public class ContatoDAO implements Serializable{
 	private EntityManager em;
 	
 	public void salvar(Contato contato)
-	{
-		System.out.println(contato.getNome());
-		
+	{	
 		em.persist(contato);
+	}
+	
+	public List<Contato> buscaTodos() {
+		return em.createQuery("from Contato").getResultList();
 	}
 }

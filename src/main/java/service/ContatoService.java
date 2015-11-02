@@ -1,6 +1,7 @@
 package service;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -16,5 +17,10 @@ public class ContatoService implements Serializable{
 	@Transactional
 	public void salvar(Contato contato) {
 		this.contatoDAO.salvar(contato);
+	}
+	
+	@Transactional
+	public List<Contato> buscaTodos() {
+		return this.contatoDAO.buscaTodos();
 	}
 }
